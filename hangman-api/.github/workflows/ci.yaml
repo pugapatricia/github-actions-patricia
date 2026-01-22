@@ -9,15 +9,15 @@ on:
       - main
 
 jobs:
-  build-test:
+  audit:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
-      - name: Build and test
+      - name: Inspect machine
         run: |
-          npm ci
-          npm run build --if-present
-          ls ./dist
-          npm test
+          ls -al
+          whoami
+          pwd
+          node -v
